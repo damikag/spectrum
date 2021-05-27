@@ -1,7 +1,8 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 //$FlowFixMe
 import styled from 'styled-components';
+import _uniqueId from 'lodash/uniqueId';
 
 export const Svg = styled.svg`
   position: absolute;
@@ -26,6 +27,10 @@ export const SvgWrapper = styled.div`
 `;
 
 export const Logo = () => {
+  const [id] = useState(() => {
+    _uniqueId('logo-');
+  });
+
   return (
     <SvgWrapper>
       <Svg
@@ -36,9 +41,9 @@ export const Logo = () => {
         strokeMiterlimit="1.414"
         id="logo"
         xmlns="http://www.w3.org/2000/svg"
-        aria-labelledby="title"
+        aria-labelledby={this.id}
       >
-        <title id="title">Logo</title>
+        <title id={this.id}>Logo</title>
         <g>
           <path d="M0,3.356c0,-1.767 1.433,-3.2 3.2,-3.2l2.8,0c23.196,0 42,18.804 42,42l0,2.8c0,1.768 -1.433,3.2 -3.2,3.2l-17.6,0c-1.767,0 -3.2,-1.432 -3.2,-3.2l0,-2.8c0,-9.941 -8.059,-18 -18,-18l-2.8,0c-1.767,0 -3.2,-1.432 -3.2,-3.2l0,-17.6Z" />
           <g>

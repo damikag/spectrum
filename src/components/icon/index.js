@@ -1,7 +1,8 @@
 //@flow
 import theme from 'shared/theme';
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import _uniqueId from 'lodash/uniqueId';
 
 type Props = {
   glyph: string,
@@ -934,6 +935,11 @@ export const Glyph = ({ glyph }: GlyphProps) => {
 };
 
 class Icon extends React.Component<Props> {
+  constructor(props) {
+    super(props);
+    this.id = _uniqueId('icon-');
+  }
+
   render() {
     const {
       size = 32,
@@ -959,12 +965,12 @@ class Icon extends React.Component<Props> {
           strokeLinejoin="round"
           strokeMiterlimit="1.414"
           xmlns="http://www.w3.org/2000/svg"
-          aria-labelledby="title"
+          aria-labelledby={this.id}
           viewBox="0 0 32 32"
           preserveAspectRatio="xMidYMid meet"
           fit
         >
-          <title id="title">{glyph}</title>
+          <title id={this.id}>{glyph}</title>
           <Glyph glyph={glyph} />
         </InlineSvg>
       </SvgWrapper>
