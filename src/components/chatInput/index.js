@@ -27,6 +27,7 @@ import type { Dispatch } from 'redux';
 import { MarkdownHint } from 'src/components/markdownHint';
 import { useAppScroller } from 'src/hooks/useAppScroller';
 import { MEDIA_BREAK } from 'src/components/layout';
+import SendSharpIcon from '@material-ui/icons/SendSharp';
 
 const QuotedMessage = connect()(
   getMessageById(props => {
@@ -358,7 +359,7 @@ const ChatInput = (props: Props) => {
               onClick={submit}
               style={{ flex: 'none', marginLeft: '8px' }}
             >
-              Send
+              <SendSharpIcon />
             </PrimaryButton>
           </Form>
         </ChatInputWrapper>

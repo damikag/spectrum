@@ -8,6 +8,7 @@ import UsersSearch from '../components/usersSearch';
 import SelectedUserPill from '../components/selectedUserPill';
 import { SelectedPillsWrapper } from '../style';
 import type { UserInfoType } from 'shared/graphql/fragments/user/userInfo';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 type Props = {
   usersForMessage: Array<UserInfoType>,
@@ -37,7 +38,7 @@ const Search = (props: Props) => {
             disabled={!usersForMessage || usersForMessage.length === 0}
             onClick={toWrite}
           >
-            Next
+            <ChevronRightIcon />
           </PrimaryButton>
         ),
       })
@@ -54,7 +55,7 @@ const Search = (props: Props) => {
             disabled={!usersForMessage || usersForMessage.length === 0}
             onClick={toWrite}
           >
-            Next
+            <ChevronRightIcon />
           </PrimaryButton>
         }
       />

@@ -19,6 +19,7 @@ import {
   NoCommunityHeading,
   NoCommunitySubheading,
 } from '../style';
+import AddIcon from '@material-ui/icons/Add';
 
 type Props = {
   match: Match,
@@ -37,7 +38,7 @@ class DirectMessages extends React.Component<Props, State> {
         title: 'Messages',
         rightAction: (
           <PrimaryOutlineButton size={'small'} to={'/new/message'}>
-            New
+            <AddIcon />
           </PrimaryOutlineButton>
         ),
       })
@@ -53,7 +54,7 @@ class DirectMessages extends React.Component<Props, State> {
           title: 'Messages',
           rightAction: (
             <PrimaryOutlineButton size={'small'} to={'/new/message'}>
-              New
+              <AddIcon />
             </PrimaryOutlineButton>
           ),
         })

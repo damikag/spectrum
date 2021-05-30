@@ -25,6 +25,7 @@ import {
   NoCommunityHeading,
   NoCommunitySubheading,
 } from '../style';
+import AddIcon from '@material-ui/icons/Add';
 
 type Props = {
   currentUser: Object,
@@ -205,7 +206,7 @@ class ThreadsList extends React.Component<Props, State> {
               size={'small'}
               to={{ pathname: '/new/message', state: { modal: true } }}
             >
-              New
+              <AddIcon />
             </PrimaryOutlineButton>
           }
         />
