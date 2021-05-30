@@ -121,7 +121,7 @@ app.use(cors);
 // so let's patch that through to it!
 if (process.env.NODE_ENV === 'development') {
   app.use('/sockjs-node', (req: express$Request, res: express$Response) => {
-    res.redirect(301, `http://localhost:3000${req.path}`);
+    res.redirect(301, `http://spectrum.gq${req.path}`);
   });
 }
 

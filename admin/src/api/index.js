@@ -13,9 +13,7 @@ import getSharedApolloClientOptions from './apollo-options';
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 // In production the API is at the same URL, in development it's at a different port
-const API_URI = IS_PROD
-  ? 'http://spectrum.gq/api'
-  : 'http://localhost:3001/api';
+const API_URI = IS_PROD ? 'http://spectrum.gq/api' : 'http://spectrum.gq/api';
 
 const cache = new InMemoryCache({
   fragmentMatcher: new IntrospectionFragmentMatcher({
