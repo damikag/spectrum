@@ -35,7 +35,7 @@ class Banner extends React.Component<{}, State> {
             the decision in our{' '}
             <a
               href={
-                'https://spectrum.chat/spectrum/general/join-us-on-our-new-journey~e4ca0386-f15c-4ba8-8184-21cf5fa39cf5'
+                'http://spectrum.gq/spectrum/general/join-us-on-our-new-journey~e4ca0386-f15c-4ba8-8184-21cf5fa39cf5'
               }
             >
               official announcement
