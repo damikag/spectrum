@@ -26,6 +26,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from 'src/components/loading';
 import type { Dispatch } from 'redux';
 import { openModal } from 'src/actions/modals';
+import AccountDeleteButton from './accountDeleteButton';
 
 type State = {
   isLoading: boolean,
@@ -145,14 +146,7 @@ class DeleteAccountForm extends React.Component<Props, State> {
                 </WarnButton>
               </div>
             ) : (
-              <HoverWarnOutlineButton
-                data-cy="delete-account-init-button"
-                color={'warn.default'}
-                // onClick={this.initDelete}
-                onClick={initDelete}
-              >
-                Delete my account
-              </HoverWarnOutlineButton>
+              <AccountDeleteButton initDelete={initDelete} />
             )}
           </SectionCardFooter>
         </SectionCard>

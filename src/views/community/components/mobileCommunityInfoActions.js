@@ -16,6 +16,7 @@ import {
   ListItemContent,
   NameWarn,
 } from '../style';
+import useSound from 'use-sound';
 
 type Props = {
   dispatch: Dispatch<Object>,
@@ -27,9 +28,11 @@ const Component = (props: Props) => {
   const { communityPermissions } = community;
   const { isMember, isOwner, isModerator } = communityPermissions;
   const isTeamMember = isOwner || isModerator;
+  const [clickSound] = useSound('/sounds/error.mp3', { volume: 0.25 });
 
-  const leaveCommunity = () =>
-    dispatch(
+  const leaveCommunity = () => {
+    clickSound();
+    return dispatch(
       openModal('DELETE_DOUBLE_CHECK_MODAL', {
         id: community.id,
         entity: 'team-member-leaving-community',
@@ -37,6 +40,7 @@ const Component = (props: Props) => {
         buttonLabel: 'Leave Community',
       })
     );
+  };
 
   if (!isMember && !isOwner && !isModerator) return null;
 
