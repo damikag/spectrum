@@ -25,7 +25,8 @@ import {
   NoCommunityHeading,
   NoCommunitySubheading,
 } from '../style';
-import AddIcon from '@material-ui/icons/Add';
+import AddIconButton from './addIconButton';
+import NewMessageButton from '../components/newMessageButton';
 
 type Props = {
   currentUser: Object,
@@ -166,14 +167,12 @@ class ThreadsList extends React.Component<Props, State> {
               <NoCommunitySubheading>
                 Choose from an existing conversation, or start a new one.
               </NoCommunitySubheading>
-              <PrimaryOutlineButton
+              <NewMessageButton
                 to={{
                   pathname: '/new/message',
                   state: { modal: true },
                 }}
-              >
-                New message
-              </PrimaryOutlineButton>
+              />
             </div>
           </NoCommunitySelected>
         </ThreadsListScrollContainer>
@@ -201,13 +200,11 @@ class ThreadsList extends React.Component<Props, State> {
         <DesktopTitlebar
           title={'Messages'}
           rightAction={
-            <PrimaryOutlineButton
+            <AddIconButton
               data-cy="compose-dm"
               size={'small'}
               to={{ pathname: '/new/message', state: { modal: true } }}
-            >
-              <AddIcon />
-            </PrimaryOutlineButton>
+            />
           }
         />
         <ThreadsListScrollContainer>

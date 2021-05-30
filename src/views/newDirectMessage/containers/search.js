@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import useSound from 'use-sound';
 import { connect } from 'react-redux';
 import { setTitlebarProps } from 'src/actions/titlebar';
 import { DesktopTitlebar } from 'src/components/titlebar';
@@ -25,7 +26,12 @@ const Search = (props: Props) => {
     dispatch,
   } = props;
 
-  const toWrite = () => setActiveStep('write');
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
+
+  const toWrite = () => {
+    clickSound();
+    return setActiveStep('write');
+  };
 
   useEffect(() => {
     dispatch(
