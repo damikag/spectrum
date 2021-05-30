@@ -28,6 +28,7 @@ import { MarkdownHint } from 'src/components/markdownHint';
 import { useAppScroller } from 'src/hooks/useAppScroller';
 import { MEDIA_BREAK } from 'src/components/layout';
 import SendSharpIcon from '@material-ui/icons/SendSharp';
+import useSound from 'use-sound';
 
 const QuotedMessage = connect()(
   getMessageById(props => {
@@ -88,6 +89,7 @@ const ChatInput = (props: Props) => {
   const [photoSizeError, setPhotoSizeError] = React.useState('');
   const [inputRef, setInputRef] = React.useState(null);
   const { scrollToBottom } = useAppScroller();
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
 
   // On mount, set the text state to the cached value if one exists
   // $FlowFixMe
@@ -176,6 +178,7 @@ const ChatInput = (props: Props) => {
   };
 
   const submit = async e => {
+    clickSound();
     if (e) e.preventDefault();
 
     if (!props.networkOnline) {
