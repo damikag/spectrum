@@ -41,7 +41,7 @@
     "FACEBOOK_OAUTH_CLIENT_ID_DEVELOPMENT": "@facebook-oauth-client-id-development",
     "FACEBOOK_OAUTH_CLIENT_SECRET_DEVELOPMENT": "@facebook-oauth-client-secret-development",
     "GOOGLE_OAUTH_CLIENT_SECRET_DEVELOPMENT": "@google-oauth-client-secret-development",
-    "GITHUB_OAUTH_CLIENT_SECRET_DEVELOPMENT": "@github-oauth-client-secret-development",
+    "GITHUB_OAUTH_CLIENT_SECRET_DEVELOPMENT": "0bfd7341742bed481caf1bfc93b06a6e6bf7f2bf",
     "SLACK_SECRET": "@slack-secret",
     "SLACK_SECRET_DEVELOPMENT": "@slack-secret-development",
     "SENDGRID_API_KEY": "@sendgrid-api-key",

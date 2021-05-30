@@ -56,6 +56,7 @@ const isSerializedJSON = (str: string) =>
   str[0] === '{' && str[str.length - 1] === '}';
 
 const init = () => {
+  console.log(`Hello: ${GITHUB_OAUTH_CLIENT_SECRET}`);
   // Setup use serialization
   passport.serializeUser((user, done) => {
     done(null, typeof user === 'string' ? user : JSON.stringify(user));
