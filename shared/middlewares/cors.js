@@ -6,10 +6,10 @@ export const corsOptions = {
     process.env.NODE_ENV === 'production' && !process.env.FORCE_DEV
       ? [
           'http://spectrum.gq',
-          'https://alpha.spectrum.chat',
-          'https://admin.spectrum.chat',
-          'https://hyperion.workers.spectrum.chat',
-          'https://hyperion.alpha.spectrum.chat',
+          'https://alpha.spectrum.gq',
+          'https://admin.spectrum.gq',
+          'https://hyperion.workers.spectrum.gq',
+          'https://hyperion.alpha.spectrum.gq',
           process.env.NOW_URL,
         ].filter(Boolean)
       : [/localhost/],
