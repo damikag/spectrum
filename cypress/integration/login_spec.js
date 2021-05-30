@@ -39,14 +39,14 @@ describe('Community Signup View', () => {
 
   it('should render', () => {
     cy.get('[data-cy="community-login-page"]').should('be.visible');
-    cy.get('[href*="/auth/github?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/github?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
     cy.get('[href*="github.com/withspectrum/code-of-conduct"]').should(
       'be.visible'
     );
 
-    cy.get('[href*="/login?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/login?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
   });
@@ -56,37 +56,37 @@ describe('Redirect paths', () => {
   it('should preserve community redirect paths', () => {
     cy.visit('/spectrum/login');
     cy.get('[data-cy="community-login-page"]').should('be.visible');
-    cy.get('[href*="/auth/github?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/github?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
     cy.get('[href*="github.com/withspectrum/code-of-conduct"]').should(
       'be.visible'
     );
 
-    cy.get('[href*="/login?r=http://spectrum.gq/spectrum"]')
+    cy.get('[href*="/login?r=http://localhost:3000/spectrum"]')
       .should('be.visible')
       .click();
 
-    cy.get('[href*="/auth/twitter?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/twitter?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
-    cy.get('[href*="/auth/facebook?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/facebook?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
-    cy.get('[href*="/auth/google?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/google?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
-    cy.get('[href*="/auth/github?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/auth/github?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
-    cy.get('[href*="/new/user?r=http://spectrum.gq/spectrum"]').should(
+    cy.get('[href*="/new/user?r=http://localhost:3000/spectrum"]').should(
       'be.visible'
     );
   });
 
   it('should preserve thread redirect paths', () => {
     const path =
-      'http://spectrum.gq/spectrum/general/yet-another-thread~thread-3';
+      'http://localhost:3000/spectrum/general/yet-another-thread~thread-3';
     cy.visit(path);
     cy.get('[data-cy="join-community-chat-upsell"]')
       .should('be.visible')

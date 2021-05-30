@@ -10,9 +10,9 @@ module.exports = {
   APP_NAME: 'Spectrum',
   APP_VERSION: app.getVersion(),
   APP_REMOTE_URL: 'http://spectrum.gq/login',
-  APP_DEV_URL: 'http://spectrum.gq/login',
+  APP_DEV_URL: 'http://localhost:3000/login',
   APP_REMOTE_HOME_URL: 'http://spectrum.gq',
-  APP_DEV_HOME_URL: 'http://spectrum.gq',
+  APP_DEV_HOME_URL: 'http://localhost:3000',
 
   GITHUB_URL: 'https://github.com/withspectrum/spectrum',
   GITHUB_URL_LICENSE:

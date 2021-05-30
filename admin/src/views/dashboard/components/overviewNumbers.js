@@ -25,7 +25,7 @@ import {
 const IS_PROD = process.env.NODE_ENV === 'production';
 const LOGIN_URL = IS_PROD
   ? `http://spectrum.gq/auth/twitter?r=https://${window.location.host}`
-  : 'http://localhost:3001/auth/twitter?r=http://spectrum.gq';
+  : 'http://localhost:3001/auth/twitter?r=http://localhost:3000';
 
 const OverviewNumbers = ({ data }) => {
   if (data.loading) return <p>Loading...</p>;
