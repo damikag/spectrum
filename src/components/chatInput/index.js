@@ -89,7 +89,7 @@ const ChatInput = (props: Props) => {
   const [photoSizeError, setPhotoSizeError] = React.useState('');
   const [inputRef, setInputRef] = React.useState(null);
   const { scrollToBottom } = useAppScroller();
-  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
+  const [clickSound] = useSound('/sounds/tap2.mp3', { volume: 0.25 });
 
   // On mount, set the text state to the cached value if one exists
   // $FlowFixMe

@@ -22,6 +22,7 @@ import { NavigationContext } from 'src/helpers/navigation-context';
 import formatNotification from 'shared/notification-to-text';
 import { withCurrentUser } from 'src/components/withCurrentUser';
 import { AvatarGrid, AvatarLink, Label, IconWrapper, RedDot } from './style';
+import useSound from 'use-sound';
 
 type Props = {
   isActive: boolean,
@@ -42,6 +43,8 @@ const NotificationsTab = (props: Props) => {
 
   const isWideViewport =
     window && window.innerWidth > MIN_WIDTH_TO_EXPAND_NAVIGATION;
+
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
 
   // $FlowIssue Subscribe on mount
   React.useEffect(() => {
@@ -101,6 +104,11 @@ const NotificationsTab = (props: Props) => {
     window.interop.setBadgeCount(count);
   }
 
+  const setNavigationIsOpenWithAudio = (value, func) => {
+    clickSound();
+    return func(value);
+  };
+
   return (
     <NavigationContext.Consumer>
       {({ setNavigationIsOpen }) => (
@@ -113,7 +121,9 @@ const NotificationsTab = (props: Props) => {
             <AvatarLink
               to={'/notifications'}
               data-cy="navigation-notifications"
-              onClick={() => setNavigationIsOpen(false)}
+              onClick={() =>
+                setNavigationIsOpenWithAudio(false, setNavigationIsOpen)
+              }
               {...getAccessibilityActiveState(
                 match && match.url.includes('/notifications')
               )}

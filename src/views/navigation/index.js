@@ -26,6 +26,7 @@ import { Skip, getAccessibilityActiveState } from './accessibility';
 import CommunityList from './communityList';
 import { NavigationContext } from 'src/helpers/navigation-context';
 import { MIN_WIDTH_TO_EXPAND_NAVIGATION } from 'src/components/layout';
+import useSound from 'use-sound';
 
 type Props = {
   history: History,
@@ -39,6 +40,13 @@ const Navigation = (props: Props) => {
   if (isMarketingPage) return null;
   const isWideViewport =
     window && window.innerWidth > MIN_WIDTH_TO_EXPAND_NAVIGATION;
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
+
+  const setNavigationIsOpenWithAudio = (value, func) => {
+    clickSound();
+    return func(value);
+  };
+
   if (!isLoadingCurrentUser && !currentUser) {
     return (
       <NavigationContext.Consumer>
@@ -46,7 +54,9 @@ const Navigation = (props: Props) => {
           <NavigationWrapper data-cy="navigation-bar" isOpen={navigationIsOpen}>
             <Overlay
               isOpen={navigationIsOpen}
-              onClick={() => setNavigationIsOpen(false)}
+              onClick={() =>
+                setNavigationIsOpenWithAudio(false, setNavigationIsOpen)
+              }
             />
 
             <NavigationGrid isOpen={navigationIsOpen}>
@@ -63,7 +73,12 @@ const Navigation = (props: Props) => {
                       <AvatarLink
                         to={'/explore'}
                         data-cy="navigation-explore"
-                        onClick={() => setNavigationIsOpen(false)}
+                        onClick={() =>
+                          setNavigationIsOpenWithAudio(
+                            false,
+                            setNavigationIsOpen
+                          )
+                        }
                         {...getAccessibilityActiveState(!!match)}
                       >
                         <IconWrapper>
@@ -90,7 +105,12 @@ const Navigation = (props: Props) => {
                       <AvatarLink
                         to={'/login'}
                         data-cy="navigation-login"
-                        onClick={() => setNavigationIsOpen(false)}
+                        onClick={() =>
+                          setNavigationIsOpenWithAudio(
+                            false,
+                            setNavigationIsOpen
+                          )
+                        }
                         {...getAccessibilityActiveState(!!match)}
                       >
                         <IconWrapper>
@@ -120,7 +140,9 @@ const Navigation = (props: Props) => {
 
             <Overlay
               isOpen={navigationIsOpen}
-              onClick={() => setNavigationIsOpen(false)}
+              onClick={() =>
+                setNavigationIsOpenWithAudio(false, setNavigationIsOpen)
+              }
             />
 
             <NavigationGrid isOpen={navigationIsOpen}>
@@ -148,7 +170,12 @@ const Navigation = (props: Props) => {
                       <AvatarLink
                         to={'/explore'}
                         data-cy="navigation-explore"
-                        onClick={() => setNavigationIsOpen(false)}
+                        onClick={() =>
+                          setNavigationIsOpenWithAudio(
+                            false,
+                            setNavigationIsOpen
+                          )
+                        }
                         {...getAccessibilityActiveState(
                           match && match.url === '/explore' && match.isExact
                         )}
@@ -182,7 +209,12 @@ const Navigation = (props: Props) => {
                       <AvatarLink
                         to={'/me'}
                         data-cy="navigation-profile"
-                        onClick={() => setNavigationIsOpen(false)}
+                        onClick={() =>
+                          setNavigationIsOpenWithAudio(
+                            false,
+                            setNavigationIsOpen
+                          )
+                        }
                         {...getAccessibilityActiveState(
                           history.location.pathname ===
                             `/users/${currentUser.username}`
