@@ -230,7 +230,7 @@
     "start:vulcan": "cross-env NODE_ENV=production node build-vulcan/main.js",
     "start:api": "cross-env NODE_ENV=production node build-api/main.js",
     "dev:web": "cross-env NODE_PATH=./ react-app-rewired start",
-    "dev:api": "cross-env FILE_STORAGE=local cross-env NODE_PATH=./ cross-env NODE_ENV=development cross-env DEBUG=build*,api*,shared:rethinkdb:db-query-cache,-api:resolvers,shared:middlewares:ratelimiter cross-env DIR=api backpack",
+    "dev:api": "cross-env FILE_STORAGE=local cross-env NODE_PATH=./ cross-env NODE_ENV=production cross-env DEBUG=build*,api*,shared:rethinkdb:db-query-cache,-api:resolvers,shared:middlewares:ratelimiter cross-env DIR=api backpack",
     "dev:api:s3": "cross-env FILE_STORAGE=s3 cross-env NODE_PATH=./ cross-env NODE_ENV=development cross-env DEBUG=build*,api*,shared:rethinkdb:db-query-cache,-api:resolvers cross-env DIR=api backpack",
     "dev:athena": "cross-env NODE_PATH=./ cross-env NODE_ENV=development cross-env DEBUG=build*,athena*,-athena:resolvers cross-env DIR=athena backpack",
     "dev:hermes": "cross-env NODE_PATH=./ cross-env NODE_ENV=development cross-env DEBUG=build*,hermes*,-hermes:resolvers cross-env DIR=hermes backpack",
