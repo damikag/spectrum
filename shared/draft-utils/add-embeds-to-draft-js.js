@@ -10,7 +10,7 @@ const FRAMER_URLS = /\b(?:https?:\/\/)?(?:www\.)?(?:framer\.cloud|share\.framerj
 const CODEPEN_URLS = /\b(?:https?:\/\/)?(?:www\.)?codepen\.io(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gi;
 const CODESANDBOX_URLS = /\b(?:https?:\/\/)?(?:www\.)?codesandbox\.io(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gi;
 const SIMPLECAST_URLS = /\b(?:https?:\/\/)?(?:www\.)?simplecast\.com(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gi;
-const THREAD_URLS = /(?:(?:https?:\/\/)?|\B)(?:spectrum\.chat|localhost:3000)\/.*?(?:~|(?:\?|&)t=|(?:\?|&)thread=|thread\/)([^&\s]*)/gi;
+const THREAD_URLS = /(?:(?:https?:\/\/)?|\B)(?:spectrum\.chat|spectrum\.gq)\/.*?(?:~|(?:\?|&)t=|(?:\?|&)thread=|thread\/)([^&\s]*)/gi;
 
 const REGEXPS = {
   figma: FIGMA_URLS,
