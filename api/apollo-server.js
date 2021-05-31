@@ -114,7 +114,7 @@ const server = new ProtectedApolloServer({
     },
     tabs: [
       {
-        endpoint: 'http://localhost:3001/api',
+        endpoint: 'http://spectrum.gq/api',
         query: `{
   user(username: "mxstbr") {
     id

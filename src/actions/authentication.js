@@ -8,7 +8,7 @@ export const logout = () => {
       window.location.href =
         process.env.NODE_ENV === 'production'
           ? '/auth/logout'
-          : 'http://localhost:3001/auth/logout';
+          : 'http://spectrum.gq/auth/logout';
     });
 };
 

@@ -46,7 +46,7 @@ const GITHUB_OAUTH_CLIENT_ID = IS_PROD
   ? 'e71f2b499d36d95fc07c'
   : 'e71f2b499d36d95fc07c';
 
-const CALLBACK_BASE = IS_PROD ? 'https://spectrum.gq' : 'http://localhost:3001';
+const CALLBACK_BASE = IS_PROD ? 'https://spectrum.gq' : 'http://spectrum.gq';
 
 const isSerializedJSON = (str: string) =>
   str[0] === '{' && str[str.length - 1] === '}';
