@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { zIndex } from 'src/components/globals';
 import { MEDIA_BREAK } from 'src/components/layout';
+import _uniqueId from 'lodash/uniqueId';
 
 /* eslint no-eval: 0 */
 
@@ -53,6 +54,11 @@ type Props = {
 };
 
 class Goop extends React.Component<Props> {
+  constructor(props) {
+    super(props);
+    this.id = _uniqueId('goop-');
+  }
+
   returnGoop() {
     switch (this.props.goop) {
       default:
@@ -120,11 +126,11 @@ class Goop extends React.Component<Props> {
           fillRule="evenodd"
           clipRule="evenodd"
           xmlns="http://www.w3.org/2000/svg"
-          aria-labelledby="title"
+          aria-labelledby={this.id}
           viewBox="0 0 1920 240"
           id={'goop'}
         >
-          <title id="title">goop</title>
+          <title id={this.id}>goop</title>
           {this.returnGoop()}
         </InlineSvg>
       </SvgWrapper>
