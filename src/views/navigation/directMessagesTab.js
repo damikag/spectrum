@@ -18,6 +18,7 @@ import { withCurrentUser } from 'src/components/withCurrentUser';
 import { MIN_WIDTH_TO_EXPAND_NAVIGATION } from 'src/components/layout';
 import formatNotification from 'shared/notification-to-text';
 import { AvatarGrid, AvatarLink, Label, IconWrapper, RedDot } from './style';
+import useSound from 'use-sound';
 
 type Props = {
   count: number,
@@ -34,6 +35,7 @@ type Props = {
 
 const DirectMessagesTab = (props: Props) => {
   const { count, data, isActive, currentUser } = props;
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
 
   // $FlowIssue
   React.useEffect(() => {
@@ -79,6 +81,11 @@ const DirectMessagesTab = (props: Props) => {
   const isWideViewport =
     window && window.innerWidth > MIN_WIDTH_TO_EXPAND_NAVIGATION;
 
+  const setNavigationIsOpenWithAudio = (value, func) => {
+    clickSound();
+    return func(value);
+  };
+
   return (
     <NavigationContext.Consumer>
       {({ setNavigationIsOpen }) => (
@@ -93,7 +100,9 @@ const DirectMessagesTab = (props: Props) => {
                 <AvatarLink
                   to={'/messages'}
                   data-cy="navigation-messages"
-                  onClick={() => setNavigationIsOpen(false)}
+                  onClick={() =>
+                    setNavigationIsOpenWithAudio(false, setNavigationIsOpen)
+                  }
                   {...getAccessibilityActiveState(
                     match && match.url.includes('/messages')
                   )}

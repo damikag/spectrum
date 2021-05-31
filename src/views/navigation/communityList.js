@@ -21,6 +21,7 @@ import {
   BlackDot,
 } from './style';
 import usePrevious from 'src/hooks/usePrevious';
+import useSound from 'use-sound';
 
 type Props = {
   data: {
@@ -88,6 +89,13 @@ const CommunityList = (props: Props) => {
   const { edges } = communityConnection;
   const communities = edges.map(edge => edge && edge.node);
 
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
+
+  const setNavigationIsOpenWithAudio = (value, func) => {
+    clickSound();
+    return func(value);
+  };
+
   const sorted = communities.slice().sort((a, b) => {
     const bc = parseInt(b.communityPermissions.reputation, 10);
     const ac = parseInt(a.communityPermissions.reputation, 10);
@@ -132,7 +140,7 @@ const CommunityList = (props: Props) => {
         if (index >= 0) {
           const community = sorted[index];
           if (!community) return;
-          setNavigationIsOpen(false);
+          setNavigationIsOpenWithAudio(false, setNavigationIsOpen);
           return history.push(
             `/${community.slug}?tab=${
               community.watercoolerId ? 'chat' : 'posts'
@@ -172,7 +180,9 @@ const CommunityList = (props: Props) => {
                 community={community}
                 index={index}
                 sidenavIsOpen={sidenavIsOpen}
-                onClick={() => setNavigationIsOpen(false)}
+                onClick={() =>
+                  setNavigationIsOpenWithAudio(false, setNavigationIsOpen)
+                }
               />
             );
           }}

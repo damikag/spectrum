@@ -19,6 +19,8 @@ import {
   NoCommunityHeading,
   NoCommunitySubheading,
 } from '../style';
+import AddIconButton from '../components/addIconButton';
+import NewMessageButton from '../components/newMessageButton';
 
 type Props = {
   match: Match,
@@ -35,11 +37,7 @@ class DirectMessages extends React.Component<Props, State> {
     dispatch(
       setTitlebarProps({
         title: 'Messages',
-        rightAction: (
-          <PrimaryOutlineButton size={'small'} to={'/new/message'}>
-            New
-          </PrimaryOutlineButton>
-        ),
+        rightAction: <AddIconButton size={'small'} to={'/new/message'} />,
       })
     );
   }
@@ -51,11 +49,7 @@ class DirectMessages extends React.Component<Props, State> {
       dispatch(
         setTitlebarProps({
           title: 'Messages',
-          rightAction: (
-            <PrimaryOutlineButton size={'small'} to={'/new/message'}>
-              New
-            </PrimaryOutlineButton>
-          ),
+          rightAction: <AddIconButton size={'small'} to={'/new/message'} />,
         })
       );
     }
@@ -85,14 +79,12 @@ class DirectMessages extends React.Component<Props, State> {
                   <NoCommunitySubheading>
                     Choose from an existing conversation, or start a new one.
                   </NoCommunitySubheading>
-                  <PrimaryOutlineButton
+                  <NewMessageButton
                     to={{
                       pathname: '/new/message',
                       state: { modal: true },
                     }}
-                  >
-                    New message
-                  </PrimaryOutlineButton>
+                  />
                 </div>
               </NoCommunitySelected>
             )}

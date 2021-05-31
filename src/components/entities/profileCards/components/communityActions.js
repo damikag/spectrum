@@ -11,6 +11,7 @@ import {
 import { openModal } from 'src/actions/modals';
 import JoinCommunity from 'src/components/joinCommunityWrapper';
 import { ActionsRowContainer } from '../style';
+import useSound from 'use-sound';
 
 type Props = {
   community: CommunityInfoType,
@@ -23,9 +24,11 @@ export const UnconnectedCommunityActions = (props: Props) => {
   const [isHovering, setHover] = useState(false);
   const onMouseEnter = () => setHover(true);
   const onMouseLeave = () => setHover(false);
+  const [clickSound] = useSound('/sounds/error.mp3', { volume: 0.25 });
 
-  const leaveCommunity = () =>
-    dispatch(
+  const leaveCommunity = () => {
+    clickSound();
+    return dispatch(
       openModal('DELETE_DOUBLE_CHECK_MODAL', {
         id: community.id,
         entity: 'team-member-leaving-community',
@@ -33,6 +36,7 @@ export const UnconnectedCommunityActions = (props: Props) => {
         buttonLabel: 'Leave Community',
       })
     );
+  };
 
   const { isMember, isOwner, isModerator } = community.communityPermissions;
   const isTeamMember = isOwner || isModerator;

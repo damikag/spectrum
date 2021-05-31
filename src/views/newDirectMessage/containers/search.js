@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import useSound from 'use-sound';
 import { connect } from 'react-redux';
 import { setTitlebarProps } from 'src/actions/titlebar';
 import { DesktopTitlebar } from 'src/components/titlebar';
@@ -8,6 +9,7 @@ import UsersSearch from '../components/usersSearch';
 import SelectedUserPill from '../components/selectedUserPill';
 import { SelectedPillsWrapper } from '../style';
 import type { UserInfoType } from 'shared/graphql/fragments/user/userInfo';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 type Props = {
   usersForMessage: Array<UserInfoType>,
@@ -24,7 +26,12 @@ const Search = (props: Props) => {
     dispatch,
   } = props;
 
-  const toWrite = () => setActiveStep('write');
+  const [clickSound] = useSound('/sounds/click.mp3', { volume: 0.25 });
+
+  const toWrite = () => {
+    clickSound();
+    return setActiveStep('write');
+  };
 
   useEffect(() => {
     dispatch(
@@ -37,7 +44,7 @@ const Search = (props: Props) => {
             disabled={!usersForMessage || usersForMessage.length === 0}
             onClick={toWrite}
           >
-            Next
+            <ChevronRightIcon />
           </PrimaryButton>
         ),
       })
@@ -54,7 +61,7 @@ const Search = (props: Props) => {
             disabled={!usersForMessage || usersForMessage.length === 0}
             onClick={toWrite}
           >
-            Next
+            <ChevronRightIcon />
           </PrimaryButton>
         }
       />
