@@ -43,7 +43,7 @@ const GOOGLE_OAUTH_CLIENT_ID = IS_PROD
   : '923611718470-hjribk5128dr3s26cbp5cbdecigrsjsp.apps.googleusercontent.com';
 
 const GITHUB_OAUTH_CLIENT_ID = IS_PROD
-  ? '208a2e8684d88883eded'
+  ? 'e71f2b499d36d95fc07c'
   : 'ed3e924f4a599313c83b';
 
 const CALLBACK_BASE = IS_PROD ? 'https://spectrum.gq' : 'http://localhost:3001';
