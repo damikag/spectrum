@@ -18,7 +18,7 @@ import {
 } from '../../models/community';
 import { getChannelsByCommunity, getChannelById } from '../../models/channel';
 
-const rootRedirect = IS_PROD ? `https://spectrum.gq` : `http://localhost:3000`;
+const rootRedirect = IS_PROD ? `https://spectrum.gq` : `https://spectrum.gq`;
 
 // $FlowIssue
 emailRouter.get('/unsubscribe', async (req, res) => {
@@ -196,7 +196,7 @@ emailRouter.get('/validate', (req, res) => {
                 }/settings?toastType=success&toastMessage=Your email address has been validated!`
               )
             : res.redirect(
-                `http://localhost:3000/${
+                `https://spectrum.gq/${
                   community.slug
                 }/settings?toastType=success&toastMessage=Your email address has been validated!`
               )

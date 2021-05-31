@@ -77,7 +77,7 @@ app.use('/', (req: express$Request, res: express$Response) => {
   res.redirect(
     process.env.NODE_ENV === 'production' && !process.env.FORCE_DEV
       ? 'https://spectrum.gq'
-      : 'http://localhost:3000'
+      : 'https://spectrum.gq'
   );
 });
 

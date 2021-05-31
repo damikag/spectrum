@@ -44,7 +44,7 @@ slackRouter.get('/', (req: any, res: any) => {
     .then(slug => {
       return IS_PROD
         ? res.redirect(`https://spectrum.gq/${slug}/settings`)
-        : res.redirect(`http://localhost:3000/${slug}/settings`);
+        : res.redirect(`https://spectrum.gq/${slug}/settings`);
     });
 });
 
@@ -68,7 +68,7 @@ slackRouter.get('/onboarding', (req: any, res: any) => {
     .then(id => {
       return IS_PROD
         ? res.redirect(`https://spectrum.gq/new/community?s=2&id=${id}`)
-        : res.redirect(`http://localhost:3000/new/community?s=2&id=${id}`);
+        : res.redirect(`https://spectrum.gq/new/community?s=2&id=${id}`);
     });
 });
 
