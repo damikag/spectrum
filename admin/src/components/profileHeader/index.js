@@ -16,7 +16,7 @@ export const ProfileHeader = ({ user }: any) => {
       </Row>
 
       <Link
-        to={`https://spectrum.chat/users/${user.username}`}
+        to={`https://spectrum.gq/users/${user.username}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -38,7 +38,7 @@ export const CommunityProfileHeader = ({ community }) => {
       </Row>
 
       <Link
-        to={`https://spectrum.chat/${community.slug}`}
+        to={`https://spectrum.gq/${community.slug}`}
         target="_blank"
         rel="noopener noreferrer"
       >

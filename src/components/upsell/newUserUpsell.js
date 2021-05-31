@@ -144,7 +144,7 @@ class UpsellNewUser extends Component {
 
           <ButtonRow>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://spectrum.chat&t=Come hang out with me on Spectrum, a new place on the internet for communities!`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://spectrum.gq&t=Come hang out with me on Spectrum, a new place on the internet for communities!`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -153,7 +153,7 @@ class UpsellNewUser extends Component {
               </Button>
             </a>
             <a
-              href={`https://twitter.com/share?text=Come hang out with me on @withspectrum, a new place on the internet for communities!&url=https://spectrum.chat`}
+              href={`https://twitter.com/share?text=Come hang out with me on @withspectrum, a new place on the internet for communities!&url=https://spectrum.gq`}
               target="_blank"
               rel="noopener noreferrer"
             >
